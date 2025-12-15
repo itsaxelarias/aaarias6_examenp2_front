@@ -1,0 +1,449 @@
+:root {
+  --bg: #0b1220;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --brand: #7c3aed;
+  --brand-2: #22c55e;
+
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #60a5fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  background: radial-gradient(1200px 500px at 20% 0%, rgba(124, 58, 237, 0.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 30%, rgba(34, 197, 94, 0.18), transparent 60%),
+              linear-gradient(180deg, #050914, var(--bg));
+  color: var(--text);
+}
+
+.container {
+  width: min(1150px, 92vw);
+  margin: 0 auto;
+  padding: 22px 0 40px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(5, 9, 20, 0.85), rgba(5, 9, 20, 0.45));
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar__content {
+  width: min(1150px, 92vw);
+  margin: 0 auto;
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(24px, 3.2vw, 38px);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.topbar__meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pill {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.pill--soft {
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.25);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 420px 1fr;
+    align-items: start;
+  }
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card__header {
+  padding: 16px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.card__hint {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card__body {
+  padding: 16px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 520px) {
+  .form__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field__label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field__control {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text);
+  outline: none;
+}
+
+.field__control:focus {
+  border-color: rgba(124, 58, 237, 0.65);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.18);
+}
+
+.form__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid rgba(124, 58, 237, 0.55);
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.95), rgba(124, 58, 237, 0.72));
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 18px rgba(124, 58, 237, 0.18);
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+  color: var(--text);
+}
+
+.alert {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.alert--error {
+  border-color: rgba(239, 68, 68, 0.45);
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.list__toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search {
+  flex: 1;
+  min-width: 240px;
+}
+
+.search__input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text);
+  outline: none;
+}
+
+.search__input:focus {
+  border-color: rgba(96, 165, 250, 0.65);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+}
+
+.list__count {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tableWrap {
+  width: 100%;
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+.table thead th {
+  text-align: left;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 12px 12px;
+  position: sticky;
+  top: 0;
+  background: rgba(10, 16, 30, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody td {
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12.5px;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge--draft {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.badge--submitted {
+  background: rgba(96, 165, 250, 0.14);
+  border-color: rgba(96, 165, 250, 0.30);
+}
+
+.badge--approved {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.30);
+}
+
+.badge--rejected {
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.30);
+}
+
+.badge--cancelled {
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.30);
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.footer {
+  width: min(1150px, 92vw);
+  margin: 0 auto;
+  padding: 18px 0 26px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer__sep {
+  opacity: 0.55;
+}
+
+
+/* =========================
+   Responsive fixes (ADD END)
+   ========================= */
+
+/* Evita scroll horizontal por overflow accidental */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ajuste fino de paddings en pantallas pequeñas */
+@media (max-width: 980px) {
+  .container {
+    padding: 16px 0 28px;
+  }
+
+  .topbar__content {
+    padding: 14px 0;
+  }
+}
+
+/* En móviles: topbar en columna para que no se corte */
+@media (max-width: 640px) {
+  .topbar__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar__meta {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .pill {
+    white-space: normal;
+  }
+}
+
+/* Mejor ajuste de cards y grid en pantallas intermedias */
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Inputs y tabla: que se adapten mejor en pantallas chicas */
+@media (max-width: 520px) {
+  .form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search {
+    min-width: 100%;
+  }
+}
+
+/* Tabla más responsive: scroll horizontal suave + ancho mínimo más razonable */
+.tableWrap {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-width: 100%;
+}
+
+/* Reduce el min-width para pantallas medianas y pequeñas */
+@media (max-width: 900px) {
+  .table {
+    min-width: 760px;
+  }
+}
+
+@media (max-width: 520px) {
+  .table {
+    min-width: 720px;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 10px 10px;
+  }
+}
+
+/* Sticky header: asegura que sea sticky dentro del contenedor scrolleable */
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
