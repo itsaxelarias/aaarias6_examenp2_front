@@ -23,7 +23,8 @@ export default function PurchaseOrderList({ refresh }) {
       setError("");
       setLoading(true);
 
-      const res = await api.get("/api/v1/purchase-orders");
+      const res = await api.get("/v1/purchase-orders");
+
       setOrders(Array.isArray(res.data) ? res.data : []);
     } catch (e) {
       setError("Error consultando la API");

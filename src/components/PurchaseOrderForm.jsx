@@ -27,7 +27,7 @@ export default function PurchaseOrderForm({ onCreated }) {
     setLoading(true);
 
     try {
-      await api.post("/api/v1/purchase-orders", {
+      await api.post("/v1/purchase-orders", {
         ...form,
         totalAmount: Number(form.totalAmount),
       });
